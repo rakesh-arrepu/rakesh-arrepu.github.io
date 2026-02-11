@@ -110,10 +110,11 @@ export interface Certification {
   name: string;
   issuer: string;
   icon: string; // emoji or unicode
-  type?: "certification" | "workshop" | "conference" | "course";
+  type?: "certification" | "workshop" | "conference" | "course" | "bootcamp" | "webinar";
   year?: number;
   month?: string;
   verificationLink?: string;
+  certImage?: string;
   description?: string;
   skills?: string[];
 }

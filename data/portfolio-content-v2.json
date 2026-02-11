@@ -381,7 +381,7 @@
         "issuer": "Great Learning",
         "type": "certification",
         "icon": "\u2728",
-        "year": 2024,
+        "year": 2025,
         "month": "October",
         "verificationLink": "https://www.mygreatlearning.com/certificate/QLDGVWMW"
       },
@@ -395,26 +395,66 @@
         "verificationLink": "https://eportfolio.greatlearning.in/rakesh-arrepu"
       },
       {
-        "name": "Agentic AI for Testers",
+        "name": "Agentic AI for Testers - Turn LLMs into Powerful QA Agents",
         "issuer": "The Test Tribe",
-        "type": "workshop",
+        "type": "bootcamp",
         "icon": "\ud83d\udd2c",
-        "year": 2024,
-        "month": "December",
-        "verificationLink": "#",
-        "description": "Hands-on workshop exploring the integration of AI agents into testing workflows. Covered autonomous test generation, intelligent test maintenance, and leveraging LLMs for test case creation and bug analysis.",
+        "year": 2025,
+        "month": "August",
+        "certImage": "/certs/Test Tribe- Agentic AI For Testers.png",
+        "description": "Live Bootcamp on integrating AI agents into testing workflows. Covered autonomous test generation, intelligent test maintenance, and leveraging LLMs for test case creation and bug analysis.",
         "skills": ["AI Agents", "Test Automation", "LLM Integration", "Autonomous Testing", "Prompt Engineering"]
       },
       {
-        "name": "Design Patterns in Test Automation",
+        "name": "Design Pattern for Testers for Scalable Test Automation Frameworks",
         "issuer": "The Test Tribe",
         "type": "workshop",
         "icon": "\ud83c\udfaf",
-        "year": 2024,
-        "month": "November",
-        "verificationLink": "#",
-        "description": "Comprehensive workshop on applying software design patterns to test automation frameworks. Learned Page Object Model, Factory Pattern, Strategy Pattern, and Builder Pattern implementations for scalable and maintainable test suites.",
+        "year": 2025,
+        "month": "August",
+        "certImage": "/certs/Test Tribe-Design Patterns.png",
+        "description": "Live Workshop on applying software design patterns to test automation frameworks. Covered Page Object Model, Factory Pattern, Strategy Pattern, and Builder Pattern for scalable and maintainable test suites.",
         "skills": ["Design Patterns", "Test Architecture", "Page Object Model", "Framework Design", "Best Practices"]
+      },
+      {
+        "name": "Testflix 2025 - World's Leading Software Testing Conference",
+        "issuer": "The Test Tribe",
+        "type": "conference",
+        "icon": "\ud83c\udf9e\ufe0f",
+        "year": 2025,
+        "month": "October",
+        "certImage": "/certs/Test Tribe World Conference.png",
+        "description": "Active participation and contribution to Testflix 2025, the world's leading software testing conference organized by The Test Tribe."
+      },
+      {
+        "name": "TribeQonf 2025 - India's Premium Software Testing Conference",
+        "issuer": "The Test Tribe",
+        "type": "conference",
+        "icon": "\ud83c\udfc6",
+        "year": 2025,
+        "month": "July",
+        "certImage": "/certs/TribeQonf 2025.png",
+        "description": "Attended TribeQonf 2025, India's premium and largest software testing conference at Radisson Blu, Bangalore."
+      },
+      {
+        "name": "AI QA Test Engineering: Testing AI Applications with the Power of AI",
+        "issuer": "ShiftSync",
+        "type": "webinar",
+        "icon": "\ud83e\udd16",
+        "year": 2025,
+        "month": "July",
+        "certImage": "/certs/Shift Sync- Cert.png",
+        "description": "Webinar on testing AI applications with the power of AI, covering AI QA test engineering methodologies and practices."
+      },
+      {
+        "name": "Testing Oracle Generation Using AI",
+        "issuer": "ShiftSync",
+        "type": "webinar",
+        "icon": "\ud83e\udde0",
+        "year": 2025,
+        "month": "October",
+        "certImage": "/certs/Shift Sync- Testing Oracle Gen using AI.png",
+        "description": "Webinar on leveraging AI for testing oracle generation, exploring how AI can automate the creation of expected outcomes in testing."
       }
     ]
   },

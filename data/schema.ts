@@ -102,10 +102,11 @@ const certificationSchema = z.object({
   name: z.string(),
   issuer: z.string(),
   icon: z.string(),
-  type: z.enum(["certification", "workshop", "conference", "course"]).optional(),
+  type: z.enum(["certification", "workshop", "conference", "course", "bootcamp", "webinar"]).optional(),
   year: z.number().optional(),
   month: z.string().optional(),
   verificationLink: z.string().optional(),
+  certImage: z.string().optional(),
   description: z.string().optional(),
   skills: z.array(z.string()).optional(),
 });

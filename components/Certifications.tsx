@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, Sparkles } from "lucide-react";
+import { CheckCircle2, Sparkles, ExternalLink } from "lucide-react";
 import { getCertificationsContent } from "@/lib/content-loader";
 import GlowCard from "@/components/ui/GlowCard";
 import { flipIn, staggerContainerFast } from "@/lib/animations";
@@ -19,6 +19,19 @@ function getCertGradient(issuer: string): { from: string; to: string; color: "pu
         return { from: "#10B981", to: "#34D399", color: "green" };
     } else {
         return { from: "#06B6D4", to: "#22D3EE", color: "cyan" };
+    }
+}
+
+// Get the type badge label
+function getTypeBadge(type?: string): string {
+    switch (type) {
+        case "certification": return "Certification";
+        case "workshop": return "Workshop";
+        case "conference": return "Conference";
+        case "bootcamp": return "Bootcamp";
+        case "webinar": return "Webinar";
+        case "course": return "Course";
+        default: return "Credential";
     }
 }
 
@@ -42,6 +55,7 @@ export default function Certifications() {
             >
                 {certifications.map((cert, index) => {
                     const gradient = getCertGradient(cert.issuer);
+                    const viewLink = cert.certImage || cert.verificationLink;
 
                     return (
                         <motion.div
@@ -68,7 +82,21 @@ export default function Certifications() {
                                     <Sparkles className="w-8 h-8" style={{ color: gradient.from }} />
                                 </div>
 
-                                <div className="relative z-10">
+                                <div className="relative z-10 flex flex-col h-full">
+                                    {/* Type Badge */}
+                                    <div className="flex justify-center mb-3">
+                                        <span
+                                            className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
+                                            style={{
+                                                color: gradient.from,
+                                                backgroundColor: `${gradient.from}15`,
+                                                border: `1px solid ${gradient.from}30`,
+                                            }}
+                                        >
+                                            {getTypeBadge(cert.type)}
+                                        </span>
+                                    </div>
+
                                     {/* Icon */}
                                     <div className="text-5xl mb-4 flex items-center justify-center">
                                         {cert.icon}
@@ -79,17 +107,39 @@ export default function Certifications() {
                                         {cert.name}
                                     </h3>
 
-                                    {/* Issuer */}
-                                    <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 text-center">
+                                    {/* Issuer & Date */}
+                                    <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
                                         {cert.issuer}
                                     </p>
+                                    {cert.month && cert.year && (
+                                        <p className="text-xs text-slate-500 dark:text-slate-500 text-center mt-1">
+                                            {cert.month} {cert.year}
+                                        </p>
+                                    )}
 
-                                    {/* Verified Badge */}
-                                    <div className="flex items-center justify-center gap-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-                                        <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />
-                                        <span className="text-xs font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider">
-                                            Verified
-                                        </span>
+                                    {/* Spacer to push footer to bottom */}
+                                    <div className="flex-1" />
+
+                                    {/* Footer: Verified + View Details */}
+                                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                                        <div className="flex items-center gap-1.5">
+                                            <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />
+                                            <span className="text-xs font-semibold text-green-700 dark:text-green-400 uppercase tracking-wider">
+                                                Verified
+                                            </span>
+                                        </div>
+                                        {viewLink && viewLink !== "#" && (
+                                            <a
+                                                href={viewLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1 text-xs font-semibold uppercase tracking-wider transition-colors"
+                                                style={{ color: gradient.from }}
+                                            >
+                                                View Details
+                                                <ExternalLink className="w-3 h-3" />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </GlowCard>

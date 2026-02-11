@@ -29,8 +29,9 @@ interface EnhancedCertification {
     year?: number;
     month?: string;
     category?: string;
-    type?: "certification" | "workshop" | "conference" | "course";
+    type?: "certification" | "workshop" | "conference" | "course" | "bootcamp" | "webinar";
     verificationLink?: string;
+    certImage?: string;
     description?: string;
     skills?: string[];
 }
@@ -47,8 +48,8 @@ const categories = [
 
 // Auto-categorize certifications based on keywords and type
 function getCertCategory(cert: EnhancedCertification): string {
-    // If it's a workshop or conference, categorize as events
-    if (cert.type === "workshop" || cert.type === "conference") return "events";
+    // If it's a workshop, conference, bootcamp, or webinar, categorize as events
+    if (cert.type === "workshop" || cert.type === "conference" || cert.type === "bootcamp" || cert.type === "webinar") return "events";
 
     const text = (cert.name + " " + cert.issuer).toLowerCase();
     if (text.includes("cloud") || text.includes("oci") || text.includes("oracle")) return "cloud";
