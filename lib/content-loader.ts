@@ -5,7 +5,21 @@ import portfolioData from "@/data/portfolio-content-v2.json"; // v2: Organizatio
 import type { PortfolioContent } from "@/data/types";
 import { portfolioSchema } from "@/data/schema";
 
+import React from "react";
+
 let cachedContent: PortfolioContent | null = null;
+
+/**
+ * Render markdown bold (**text**) as styled <strong> elements
+ */
+export function renderBold(text: string): React.ReactNode[] {
+  const parts = text.split(/\*\*(.*?)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1
+      ? React.createElement("strong", { key: i, className: "text-blue-600 dark:text-blue-400 font-semibold" }, part)
+      : React.createElement("span", { key: i }, part)
+  );
+}
 
 /**
  * Get the full portfolio content with validation

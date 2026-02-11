@@ -14,7 +14,7 @@ import {
     Target,
     LucideIcon,
 } from "lucide-react";
-import { getAboutContent } from "@/lib/content-loader";
+import { getAboutContent, renderBold } from "@/lib/content-loader";
 import GlowCard from "@/components/ui/GlowCard";
 import GradientBorder from "@/components/ui/GradientBorder";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -89,7 +89,7 @@ export default function About() {
 
                                 {/* Bio Summary */}
                                 <p className="text-slate-600 dark:text-slate-300 leading-[1.8] text-[14px] mb-8">
-                                    {bio}
+                                    {renderBold(bio)}
                                 </p>
 
                                 {/* Journey Timeline */}

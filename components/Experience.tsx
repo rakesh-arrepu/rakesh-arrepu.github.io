@@ -11,25 +11,12 @@ import {
     Building2,
     CheckCircle2,
 } from "lucide-react";
-import { getExperienceContent } from "@/lib/content-loader";
+import { getExperienceContent, renderBold } from "@/lib/content-loader";
 import GlowCard from "@/components/ui/GlowCard";
 import { fadeInLeft, fadeInRight } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const expContent = getExperienceContent();
-
-function renderBold(text: string) {
-    const parts = text.split(/\*\*(.*?)\*\*/g);
-    return parts.map((part, i) =>
-        i % 2 === 1 ? (
-            <strong key={i} className="text-blue-600 dark:text-blue-400 font-semibold">
-                {part}
-            </strong>
-        ) : (
-            <span key={i}>{part}</span>
-        )
-    );
-}
 
 // Extract metrics from achievement text (e.g., "70%", "85%", "50%")
 function extractMetric(text: string): string | null {
