@@ -1,0 +1,78 @@
+{
+  "heading": "Professional Development & Credentials",
+  "subheading": "Certifications, conferences, workshops & continuous learning journey",
+  "credentials": [
+    {
+      "name": "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+      "issuer": "Oracle",
+      "type": "certification",
+      "icon": "☁️",
+      "year": 2025,
+      "month": "April",
+      "category": "cloud",
+      "verificationLink": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=AC4FE18F9F52002B8453A22272F6727673CDA20205CFD42811BF161AEB37E991",
+      "description": "Foundation-level certification in AI technologies on Oracle Cloud Infrastructure",
+      "skills": ["Oracle Cloud", "AI Foundations", "Cloud Architecture"]
+    },
+    {
+      "name": "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+      "issuer": "Oracle",
+      "type": "certification",
+      "icon": "🤖",
+      "year": 2025,
+      "month": "November",
+      "category": "ai",
+      "verificationLink": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=437C3E628A6972F697C14FFCC3A294F727E5A332343CA8F11A477B32DED6CDF4",
+      "description": "Professional-level certification demonstrating expertise in Generative AI on OCI",
+      "skills": ["Generative AI", "LLMs", "OCI", "Prompt Engineering"]
+    },
+    {
+      "name": "Generative AI",
+      "issuer": "Great Learning",
+      "type": "certification",
+      "icon": "✨",
+      "year": 2024,
+      "month": "October",
+      "category": "ai",
+      "verificationLink": "https://www.mygreatlearning.com/certificate/QLDGVWMW",
+      "description": "Comprehensive certification in Generative AI technologies and applications",
+      "skills": ["GenAI", "Machine Learning", "AI Applications"]
+    },
+    {
+      "name": "Advanced Certificate Program in Full Stack Software Development",
+      "issuer": "Great Lakes Institute of Management",
+      "type": "certification",
+      "icon": "💻",
+      "year": 2022,
+      "month": "June",
+      "category": "development",
+      "verificationLink": "https://eportfolio.greatlearning.in/rakesh-arrepu",
+      "description": "Diploma of Education in Full Stack Development covering frontend, backend, and DevOps",
+      "skills": ["Full Stack", "React", "Node.js", "MongoDB", "AWS"]
+    },
+    {
+      "name": "Agentic AI for Testers",
+      "issuer": "The Test Tribe",
+      "type": "workshop",
+      "icon": "🔬",
+      "year": 2024,
+      "month": "November",
+      "category": "ai",
+      "verificationLink": "#placeholder",
+      "description": "Hands-on workshop on implementing AI agents in testing workflows",
+      "skills": ["AI Agents", "Test Automation", "LLM Integration"]
+    },
+    {
+      "name": "Design Patterns in Test Automation",
+      "issuer": "The Test Tribe",
+      "type": "workshop",
+      "icon": "🎯",
+      "year": 2024,
+      "month": "September",
+      "category": "testing",
+      "verificationLink": "#placeholder",
+      "description": "Advanced workshop on design patterns and best practices in test automation",
+      "skills": ["Design Patterns", "Test Architecture", "Best Practices"]
+    }
+  ]
+}

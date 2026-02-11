@@ -1,0 +1,386 @@
+{
+  "personal": {
+    "name": "Rakesh Arrepu",
+    "email": "rakesh.arrepu@gmail.com",
+    "phone": "+91-9494671198"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Rakesh Arrepu",
+    "roles": [
+      "Senior QA Automation Engineer - SDET",
+      "Test Automation Architect",
+      "AI-Driven Testing Expert",
+      "Quality Engineering Leader"
+    ]
+  },
+  "about": {
+    "heading": "About Me",
+    "subheading": "Transforming Quality Assurance with AI & Automation",
+    "bio": "Senior QA Automation Engineer with 10+ years of expertise in SDET roles across diverse domains including Oracle Cloud, Airlines, HR & Legal, Healthcare, and Logistics. Specialized in designing enterprise-grade automation frameworks using Selenium, Playwright, Cypress, and REST Assured. Pioneering the integration of AI agents and LLMs in testing workflows to enhance efficiency and coverage. Proven track record of reducing regression time by 70%, achieving 85% automation coverage, and delivering complex test solutions for microservices architectures. Active thought leader with 2000+ LinkedIn followers, publishing insights on AI agents, generative AI in testing, and modern QA practices.",
+    "details": [
+      {"label": "Name", "value": "Rakesh Arrepu"},
+      {"label": "Role", "value": "Senior QA Automation Engineer"},
+      {"label": "Experience", "value": "10+ Years"},
+      {"label": "Location", "value": "Hyderabad, India"},
+      {"label": "Email", "value": "rakesh.arrepu@gmail.com"},
+      {"label": "Specialization", "value": "AI-Driven Testing & Test Automation"}
+    ],
+    "journeyTimeline": [
+      {"year": "2015", "phase": "Foundation", "title": "Quality Assurance Beginnings", "skills": ["Manual Testing", "SQL", "Test Cases", "Bug Tracking"], "milestone": "Started career in QA", "color": "from-blue-500 to-cyan-500", "iconName": "BookOpen"},
+      {"year": "2016", "phase": "Learning", "title": "Automation Fundamentals", "skills": ["Selenium WebDriver", "Java Basics", "TestNG", "Maven"], "milestone": "First automation framework", "color": "from-cyan-500 to-teal-500", "iconName": "Code"},
+      {"year": "2017", "phase": "Growth", "title": "Framework Architecture", "skills": ["Page Object Model", "BDD (Cucumber)", "Jenkins CI/CD", "Git"], "milestone": "Built enterprise test framework", "color": "from-teal-500 to-green-500", "iconName": "Zap"},
+      {"year": "2018", "phase": "Expansion", "title": "API & Performance Testing", "skills": ["REST Assured", "Postman", "JMeter", "Groovy"], "milestone": "Mastered API automation", "color": "from-green-500 to-emerald-500", "iconName": "Target"},
+      {"year": "2019", "phase": "Specialization", "title": "Cloud & DevOps Integration", "skills": ["Docker", "Kubernetes", "AWS", "Azure DevOps"], "milestone": "Implemented cloud-based testing", "color": "from-emerald-500 to-blue-500", "iconName": "Sparkles"},
+      {"year": "2020", "phase": "Innovation", "title": "Modern Testing Tools", "skills": ["Cypress", "Playwright", "Python", "GraphQL"], "milestone": "Adopted next-gen frameworks", "color": "from-blue-500 to-purple-500", "iconName": "Zap"},
+      {"year": "2021", "phase": "Leadership", "title": "Test Strategy & Mentorship", "skills": ["Test Strategy", "Team Leadership", "Code Reviews", "Mentoring"], "milestone": "Led QA team of 8 engineers", "color": "from-purple-500 to-pink-500", "iconName": "Award"},
+      {"year": "2022", "phase": "Modernization", "title": "Microservices & Cloud-Native", "skills": ["Microservices Testing", "Kafka", "OCI", "Terraform"], "milestone": "Architected cloud-native test infrastructure", "color": "from-pink-500 to-rose-500", "iconName": "TrendingUp"},
+      {"year": "2023", "phase": "AI Integration", "title": "AI-Powered Testing", "skills": ["AI Testing Tools", "LLM Integration", "Test Data Gen", "Prompt Engineering"], "milestone": "Pioneered AI in testing workflows", "color": "from-rose-500 to-orange-500", "iconName": "Sparkles"},
+      {"year": "2024-25", "phase": "Innovation", "title": "AI Agents & Future of QA", "skills": ["AI Agents", "MCP Protocols", "Generative AI", "Autonomous Testing"], "milestone": "Building next-gen QA solutions", "color": "from-orange-500 to-amber-500", "iconName": "Zap"}
+    ]
+  },
+  "skills": {
+    "heading": "Technical Expertise",
+    "subheading": "Cutting-edge tools, frameworks & technologies I master",
+    "categories": [
+      {
+        "category": "Test Automation Frameworks",
+        "items": [
+          {"name": "Selenium WebDriver", "level": 95},
+          {"name": "Playwright", "level": 95},
+          {"name": "Cypress", "level": 90},
+          {"name": "Karate DSL", "level": 85},
+          {"name": "REST Assured", "level": 90},
+          {"name": "TestNG & JUnit", "level": 95},
+          {"name": "Cucumber BDD", "level": 90},
+          {"name": "Specflow (C#)", "level": 85}
+        ]
+      },
+      {
+        "category": "Programming & Scripting",
+        "items": [
+          {"name": "Java", "level": 95},
+          {"name": "Groovy", "level": 85},
+          {"name": "Python", "level": 80},
+          {"name": "C# .NET", "level": 80},
+          {"name": "JavaScript/TypeScript", "level": 85},
+          {"name": "SQL", "level": 85}
+        ]
+      },
+      {
+        "category": "Cloud & DevOps",
+        "items": [
+          {"name": "Jenkins", "level": 90},
+          {"name": "TeamCity", "level": 85},
+          {"name": "Git & GitHub", "level": 90},
+          {"name": "Oracle Cloud (OCI)", "level": 85},
+          {"name": "AWS Services", "level": 80},
+          {"name": "Docker & TestContainers", "level": 85},
+          {"name": "Linux/Windows/Mac Setup", "level": 90}
+        ]
+      },
+      {
+        "category": "AI & Emerging Tech",
+        "items": [
+          {"name": "Generative AI for Testing", "level": 90},
+          {"name": "Agentic AI & LLM Integration", "level": 90},
+          {"name": "AI Test Generation", "level": 85},
+          {"name": "MCP (Model Context Protocol)", "level": 85},
+          {"name": "Self-healing Tests", "level": 80}
+        ]
+      },
+      {
+        "category": "API Testing & Performance",
+        "items": [
+          {"name": "REST API Testing", "level": 95},
+          {"name": "Postman", "level": 90},
+          {"name": "Web Services Testing", "level": 90},
+          {"name": "Microservices Testing", "level": 90},
+          {"name": "PACT Contract Testing", "level": 80}
+        ]
+      },
+      {
+        "category": "Tools & Management",
+        "items": [
+          {"name": "JIRA", "level": 95},
+          {"name": "HP ALM", "level": 85},
+          {"name": "AccelQ", "level": 80},
+          {"name": "MySQL Database", "level": 85},
+          {"name": "XPath & CSS Selectors", "level": 95}
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "heading": "Professional Experience",
+    "subheading": "A decade of delivering excellence in quality engineering",
+    "jobs": [
+      {
+        "role": "Senior Software QA Engineer",
+        "company": "Oracle India Private Limited",
+        "period": "February 2022 - Present",
+        "location": "Hyderabad, India",
+        "achievements": [
+          "Leading QA for **Oracle Hospitality Reporting & Analytics**, a cloud-based application consolidating food & beverage POS data for operational insights across hospitality organizations.",
+          "Designed and developed **enterprise automation frameworks** for microservices using TestContainers, REST Assured, Selenium, TestNG, Groovy, Karate, Playwright, and Cypress.",
+          "Reduced regression execution time by **70%** through optimized E2E, integration, and functional test automation across multiple frameworks.",
+          "Set up and managed test environments on **Linux, Windows, and Mac** machines with deployment automation.",
+          "Responsible for **QA sign-offs** for each release version, ensuring zero-defect production deployments.",
+          "Created in-sprint and regression test suites enabling **continuous testing** in CI/CD pipelines.",
+          "Mentored new team members through knowledge transfer sessions, task assignments, and code reviews.",
+          "Performed **POCs on automation tools** for new applications and created comprehensive test data for functional teams.",
+          "Led daily standups, grooming calls, demo sessions, and status reporting with stakeholders.",
+          "Analyzed test results, generated detailed test reports, and maintained automation dashboards for transparency."
+        ]
+      },
+      {
+        "role": "Analyst",
+        "company": "ValueLabs LLP",
+        "period": "January 2020 - February 2022",
+        "location": "Hyderabad, India",
+        "achievements": [
+          "Worked on **United Airlines** enterprise applications, managing large-scale domestic and international route network testing systems.",
+          "Developed comprehensive **REST API automation framework** using Java, REST Assured, and Cucumber, increasing automation coverage to **85%** and reducing manual effort by **30 hours**.",
+          "Explored and evaluated **multiple tools and technologies** for enterprise applications, presented POCs to clients with **80% approval rate** for implementation.",
+          "Actively contributed to **DevOps initiatives**, installing, configuring, and integrating automation scripts with TeamCity CI/CD pipelines.",
+          "Created **Karate E2E framework** for API testing, integration testing, and regression testing automation.",
+          "Built Selenium-Java-Cucumber framework for core modules, making automation scalable and maintainable.",
+          "Gathered requirements from stakeholders, estimated efforts, and developed test strategies for multiple concurrent projects.",
+          "Provided mentorship to junior QAs, facilitating transition from **'QA to QE'** mindset with hands-on training.",
+          "Managed client interactions for POC demos, gathered feedback, and implemented changes based on onsite team requirements.",
+          "Performed code reviews for team members and ensured adherence to automation best practices."
+        ]
+      },
+      {
+        "role": "Test Automation Engineer",
+        "company": "Sails Software Solutions",
+        "period": "July 2017 - January 2020",
+        "location": "Hyderabad, India",
+        "achievements": [
+          "Automated **I-9 and E-Verify applications** for verifying identity and employment authorization in the United States, ensuring regulatory compliance.",
+          "Developed BDD-style automation framework using **Specflow with C#**, enabling behavior-driven test scenarios.",
+          "Extensively used **Postman** to test REST API services and SSO integrations, validating different endpoints for E-Verify integrations.",
+          "Managed complete Software Development Life Cycle (SDLC) and Software Testing Life Cycle (STLC) in solitary state.",
+          "Actively participated in **requirement gathering** discussions with Product Owners and conducted research for comprehensive test coverage.",
+          "Created test data management strategies and executed test cases using **Jenkins CI/CD** pipelines.",
+          "Utilized XPath for DOM object identification and NuGet packages for script development.",
+          "Generated detailed test reports using **Extent Reports** framework.",
+          "Responsible for test case execution, report generation, and defect logging in JIRA for every build release."
+        ]
+      },
+      {
+        "role": "Software Engineer",
+        "company": "Syntel India Private Limited",
+        "period": "February 2015 - June 2017",
+        "location": "Pune, India",
+        "achievements": [
+          "Tested **FedEx ePAT (Enterprise Pricing Analyst Toolkit)**, a platform for generating profit & loss statements across six operating companies.",
+          "Analyzed requirements and identified comprehensive test scenarios for strategic pricing proposals.",
+          "Executed functional test cases and generated detailed execution reports for stakeholders.",
+          "Worked in **Agile methodology**, actively participating in daily scrums, sprint retrospectives, and sprint reviews.",
+          "Prepared automation test scripts and executed SQL queries for database validation.",
+          "Performed **functional, regression, system integration, UAT, ad-hoc, smoke, and sanity testing**.",
+          "Managed defect lifecycle from recording to resolution, including defect tracking, progress reporting, and status updates.",
+          "Maintained direct **client interaction** to discuss testing approaches and functional test case development.",
+          "Utilized XPath and jQuery for robust object identification strategies.",
+          "Coordinated with onsite teams for defect prioritization and resolution tracking."
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "heading": "Key Projects & Achievements",
+    "subheading": "Transforming quality through innovation and automation",
+    "organizations": [
+      {
+        "name": "Oracle India Private Limited",
+        "period": "February 2022 - Present",
+        "role": "Senior Software QA Engineer",
+        "totalProjects": 3,
+        "description": "Led QA initiatives for cloud-based hospitality applications, architecting enterprise automation frameworks across microservices, APIs, and UI layers.",
+        "gradient": "blue-purple",
+        "projects": [
+          {
+            "title": "Oracle Hospitality Reporting & Analytics - Cloud QA",
+            "tech": ["Playwright", "Selenium", "Cypress", "REST Assured", "TestContainers", "Groovy", "Karate"],
+            "problem": "Complex cloud-based hospitality system consolidating POS data from multiple sources required comprehensive test automation across microservices, APIs, and UI layers with zero downtime deployments.",
+            "solution": "Architected multi-framework automation solution supporting functional, integration, and E2E testing. Implemented TestContainers for isolated microservices testing, REST Assured for API validation, and parallel execution across Playwright, Selenium, and Cypress for UI testing. Established QA sign-off process ensuring release quality.",
+            "impact": "70% reduction in regression time, 100% automation coverage for critical paths, zero production defects in 15+ releases",
+            "gradient": "blue"
+          },
+          {
+            "title": "Oracle F&B Insights Platform - Microservices Testing",
+            "tech": ["TestContainers", "Kafka", "REST Assured", "Docker", "Kubernetes"],
+            "problem": "Food and beverage insights platform with 15+ microservices required isolated testing strategy to validate event-driven architecture and data consistency across distributed services.",
+            "solution": "Implemented TestContainers-based isolation strategy for microservices testing. Created automated test suites for Kafka event validation, REST API contracts, and inter-service communication. Built Docker-based test environments replicating production topology.",
+            "impact": "95% microservices coverage, 60% reduction in integration issues, enabled independent service deployments",
+            "gradient": "cyan"
+          },
+          {
+            "title": "Oracle Cloud Analytics - AI-Powered Test Generation (POC)",
+            "tech": ["LLM Integration", "Python", "GPT-4", "Selenium", "REST Assured"],
+            "problem": "Manual test case creation for complex reporting scenarios was time-intensive. Exploring AI-driven test generation to automatically create test scripts from requirements and UI screenshots.",
+            "solution": "Developed POC integrating GPT-4 for test case generation from natural language requirements. Created automated pipeline converting business requirements into executable Selenium and REST Assured scripts. Implemented self-healing test mechanisms using AI-powered locator strategies.",
+            "impact": "50% reduction in test creation time, 80% POC success rate, approved for phase-2 implementation",
+            "gradient": "purple"
+          }
+        ]
+      },
+      {
+        "name": "ValueLabs LLP (Client: United Airlines)",
+        "period": "January 2020 - February 2022",
+        "role": "Analyst - QA Automation",
+        "totalProjects": 2,
+        "description": "Developed enterprise-scale automation frameworks for United Airlines' route network and booking systems, managing complex domestic and international operations testing.",
+        "gradient": "indigo-blue",
+        "projects": [
+          {
+            "title": "United Airlines Enterprise Testing Framework",
+            "tech": ["Java", "REST Assured", "Cucumber", "Selenium", "TeamCity", "AccelQ"],
+            "problem": "United Airlines' complex route network and booking systems required enterprise-scale automation framework handling domestic and international operations with high test coverage and maintainability.",
+            "solution": "Developed comprehensive REST API framework using Java, REST Assured, and Cucumber BDD. Created Karate DSL framework for E2E API testing and integration testing. Built Selenium-based UI framework for core modules. Integrated all frameworks into TeamCity CI/CD pipeline for continuous testing.",
+            "impact": "85% automation coverage, 30 hours saved per release cycle, 80% tool adoption rate from client POCs",
+            "gradient": "indigo"
+          },
+          {
+            "title": "United Airlines Booking & Reservation System Testing",
+            "tech": ["Karate DSL", "Java", "AccelQ", "Selenium", "API Testing"],
+            "problem": "Flight booking and reservation systems with complex fare calculations, seat selection, and payment integrations needed comprehensive API and UI testing across multiple user journeys.",
+            "solution": "Built Karate DSL E2E framework for API-first testing approach. Automated end-to-end booking flows including search, fare selection, seat assignment, payment, and confirmation. Created data-driven test suites for international vs domestic route validations.",
+            "impact": "90% booking flow coverage, zero fare calculation errors in production, 40% reduction in post-release defects",
+            "gradient": "blue"
+          }
+        ]
+      },
+      {
+        "name": "Sails Software Solutions",
+        "period": "July 2017 - January 2020",
+        "role": "Test Automation Engineer",
+        "totalProjects": 1,
+        "description": "Automated U.S. employment verification systems ensuring regulatory compliance with I-9 and E-Verify integrations.",
+        "gradient": "purple-pink",
+        "projects": [
+          {
+            "title": "I-9 & E-Verify Compliance Automation",
+            "tech": ["C#", "Specflow", "Postman", "REST API", "Jenkins"],
+            "problem": "U.S. employment verification system (I-9 and E-Verify) required regulatory compliance testing with complex SSO integrations, multiple endpoints, and strict accuracy requirements for identity verification.",
+            "solution": "Built BDD-style automation framework using Specflow with C# for scenario-driven testing. Extensively tested REST API services and SSO integrations using Postman. Validated data integrity across E-Verify endpoints. Implemented Jenkins CI/CD for automated execution and reporting with Extent Reports.",
+            "impact": "100% regulatory compliance maintained, automated validation of all verification endpoints, reduced manual testing by 60%",
+            "gradient": "purple"
+          }
+        ]
+      },
+      {
+        "name": "Syntel India Private Limited (Client: FedEx)",
+        "period": "February 2015 - June 2017",
+        "role": "Software Engineer - QA",
+        "totalProjects": 1,
+        "description": "Executed comprehensive testing for FedEx Enterprise Pricing Analyst Toolkit spanning six operating companies.",
+        "gradient": "cyan-teal",
+        "projects": [
+          {
+            "title": "FedEx ePAT - Enterprise Pricing Platform",
+            "tech": ["Selenium", "Java", "HP ALM", "Postman", "SQL"],
+            "problem": "FedEx Enterprise Pricing Analyst Toolkit spanning six operating companies needed comprehensive testing for profit/loss calculations, pricing strategies, and agreement generation with complex business rules.",
+            "solution": "Executed functional and regression testing across multi-tier client/server architecture. Developed automation scripts using Selenium WebDriver with Java. Performed extensive SQL database validation for pricing calculations. Managed test documentation and traceability matrices ensuring requirement coverage.",
+            "impact": "Comprehensive test coverage across 6 operating companies, zero calculation errors in production, streamlined pricing proposal workflow",
+            "gradient": "cyan"
+          }
+        ]
+      },
+      {
+        "name": "Personal Projects & Open Source",
+        "period": "2020 - Present",
+        "role": "Independent Developer",
+        "totalProjects": 1,
+        "description": "Building automation tools and utilities for the QA community, exploring AI-driven testing solutions.",
+        "gradient": "green-emerald",
+        "projects": [
+          {
+            "title": "LinkedIn Job Scraper & Report Generator",
+            "tech": ["Python", "Web Scraping", "PDF Generation"],
+            "problem": "Manual job search and tracking on LinkedIn was time-consuming, requiring a solution to automatically aggregate job listings and generate structured reports for analysis.",
+            "solution": "Developed Python-based web scraping tool that extracts job listings based on role keywords from LinkedIn. Implemented automated PDF report generation with structured job data including company, location, requirements, and application links. Created reusable utilities for JSON, TXT, and XLSX file handling.",
+            "impact": "Automated job discovery and reporting, reduced manual search time by 80%, gained 1 GitHub star for community utility",
+            "gradient": "green"
+          }
+        ]
+      }
+    ]
+  },
+  "certifications": {
+    "heading": "Professional Development & Credentials",
+    "subheading": "Certifications, workshops & continuous learning journey",
+    "certifications": [
+      {
+        "name": "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+        "issuer": "Oracle",
+        "type": "certification",
+        "icon": "☁️",
+        "year": 2025,
+        "month": "April",
+        "verificationLink": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=AC4FE18F9F52002B8453A22272F6727673CDA20205CFD42811BF161AEB37E991"
+      },
+      {
+        "name": "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
+        "issuer": "Oracle",
+        "type": "certification",
+        "icon": "🤖",
+        "year": 2025,
+        "month": "November",
+        "verificationLink": "https://catalog-education.oracle.com/ords/certview/sharebadge?id=437C3E628A6972F697C14FFCC3A294F727E5A332343CA8F11A477B32DED6CDF4"
+      },
+      {
+        "name": "Generative AI",
+        "issuer": "Great Learning",
+        "type": "certification",
+        "icon": "✨",
+        "year": 2024,
+        "month": "October",
+        "verificationLink": "https://www.mygreatlearning.com/certificate/QLDGVWMW"
+      },
+      {
+        "name": "Advanced Certificate Program in Full Stack Software Development",
+        "issuer": "Great Lakes Institute of Management",
+        "type": "certification",
+        "icon": "💻",
+        "year": 2022,
+        "month": "June",
+        "verificationLink": "https://eportfolio.greatlearning.in/rakesh-arrepu"
+      },
+      {
+        "name": "Agentic AI for Testers",
+        "issuer": "The Test Tribe",
+        "type": "workshop",
+        "icon": "🔬",
+        "year": 2024,
+        "month": "November",
+        "verificationLink": "#",
+        "description": "Hands-on workshop exploring the integration of AI agents into testing workflows. Covered autonomous test generation, intelligent test maintenance, and leveraging LLMs for test case creation and bug analysis.",
+        "skills": ["AI Agents", "Test Automation", "LLM Integration", "Autonomous Testing", "Prompt Engineering"]
+      },
+      {
+        "name": "Design Patterns in Test Automation",
+        "issuer": "The Test Tribe",
+        "type": "workshop",
+        "icon": "🎯",
+        "year": 2024,
+        "month": "September",
+        "verificationLink": "#",
+        "description": "Comprehensive workshop on applying software design patterns to test automation frameworks. Learned Page Object Model, Factory Pattern, Strategy Pattern, and Builder Pattern implementations for scalable and maintainable test suites.",
+        "skills": ["Design Patterns", "Test Architecture", "Page Object Model", "Framework Design", "Best Practices"]
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Let's Connect",
+    "subheading": "Open to opportunities, collaborations & knowledge sharing",
+    "introText": "With 2000+ followers and active engagement in the QA community, I'm passionate about discussing AI-driven testing strategies, automation best practices, and emerging technologies in quality engineering. Whether you're looking for expertise in test automation, exploring AI agents in testing, or seeking insights on modern QA practices - let's connect!",
+    "items": [
+      {"label": "Email", "value": "rakesh.arrepu@gmail.com", "href": "mailto:rakesh.arrepu@gmail.com", "iconName": "Mail"},
+      {"label": "LinkedIn", "value": "2000+ Followers", "href": "https://www.linkedin.com/in/rakesh-arrepu/", "iconName": "Linkedin", "external": true},
+      {"label": "GitHub", "value": "28 Repositories", "href": "https://github.com/rakesh-arrepu/", "iconName": "Github", "external": true},
+      {"label": "Resume", "value": "Download PDF", "href": "/Rakesh's Resume.pdf", "iconName": "FileText", "external": true}
+    ]
+  }
+}
