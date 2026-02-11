@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useId } from "react";
 
 interface CircularProgressProps {
   percentage: number;
@@ -71,8 +71,9 @@ export default function CircularProgress({
   const circumference = radius * 2 * Math.PI;
   const offset = circumference - (percentage / 100) * circumference;
 
-  // Gradient ID - use useState to generate once and remain stable
-  const [gradientId] = useState(() => `gradient-${selectedColor}-${Date.now().toString(36)}-${Math.floor(Math.random() * 1000)}`);
+  // Gradient ID - useId generates deterministic IDs that match between server and client
+  const id = useId();
+  const gradientId = `gradient-${selectedColor}${id}`;
 
   // Remove unused animateOnView to suppress warning
   void animateOnView;

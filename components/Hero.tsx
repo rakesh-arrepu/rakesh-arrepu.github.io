@@ -219,7 +219,7 @@ export default function Hero() {
                             </motion.a>
 
                             <motion.a
-                                href="/Rakesh's Resume.pdf"
+                                href="/Rakesh Arrepu_SDET.pdf"
                                 download
                                 className="group relative px-6 py-3 bg-slate-800/80 border-2 border-slate-700 rounded-xl font-semibold text-white overflow-hidden transition-all duration-300 hover:border-green-500 hover:shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center gap-2"
                                 whileHover={{ scale: 1.05, y: -2 }}
