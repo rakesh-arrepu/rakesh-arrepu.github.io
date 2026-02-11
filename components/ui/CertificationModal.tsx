@@ -47,15 +47,15 @@ export default function CertificationModal({
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             className={cn(
-                                "relative w-full max-w-2xl",
+                                "relative w-full max-w-2xl max-h-[90vh]",
                                 "bg-white dark:bg-slate-900",
                                 "rounded-2xl shadow-2xl",
                                 "border border-slate-200 dark:border-slate-700",
-                                "overflow-hidden"
+                                "overflow-hidden flex flex-col"
                             )}
                         >
                             {/* Header with gradient */}
-                            <div className="relative bg-gradient-to-br from-blue-600 to-purple-600 p-8 text-white">
+                            <div className="relative bg-gradient-to-br from-blue-600 to-purple-600 p-6 text-white flex-shrink-0">
                                 {/* Close button */}
                                 <button
                                     onClick={onClose}
@@ -64,25 +64,25 @@ export default function CertificationModal({
                                     <X className="w-5 h-5" />
                                 </button>
 
-                                {/* Icon */}
-                                <div className="text-6xl mb-4">
-                                    {certification.icon || "🏆"}
-                                </div>
-
-                                {/* Title */}
-                                <h2 className="text-2xl font-bold mb-2">
-                                    {certification.name}
-                                </h2>
-
-                                {/* Issuer */}
-                                <div className="flex items-center gap-2 text-white/90">
-                                    <Building2 className="w-5 h-5" />
-                                    <span className="text-lg">{certification.issuer}</span>
+                                {/* Icon + Title */}
+                                <div className="flex items-start gap-4 pr-10">
+                                    <div className="text-4xl flex-shrink-0">
+                                        {certification.icon || "🏆"}
+                                    </div>
+                                    <div>
+                                        <h2 className="text-xl font-bold mb-1">
+                                            {certification.name}
+                                        </h2>
+                                        <div className="flex items-center gap-2 text-white/90">
+                                            <Building2 className="w-4 h-4" />
+                                            <span className="text-sm">{certification.issuer}</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Content */}
-                            <div className="p-8 space-y-6">
+                            {/* Content - scrollable */}
+                            <div className="p-6 space-y-5 overflow-y-auto flex-1">
                                 {/* Date */}
                                 {(certification.month || certification.year) && (
                                     <div className="flex items-center gap-3">
@@ -151,20 +151,19 @@ export default function CertificationModal({
 
                                 {/* Certificate Image */}
                                 {certification.certImage ? (
-                                    <div className="mt-6">
-                                        <a
-                                            href={certification.certImage}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="block rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
-                                        >
-                                            <img
-                                                src={certification.certImage}
-                                                alt={`${certification.name} certificate`}
-                                                className="w-full h-auto"
-                                            />
-                                        </a>
-                                    </div>
+                                    <a
+                                        href={certification.certImage}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="block rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+                                        title="Click to view full size"
+                                    >
+                                        <img
+                                            src={certification.certImage}
+                                            alt={`${certification.name} certificate`}
+                                            className="w-full h-auto max-h-[200px] object-contain bg-slate-50 dark:bg-slate-800"
+                                        />
+                                    </a>
                                 ) : (
                                     <div className="mt-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
                                         <p className="text-sm text-amber-800 dark:text-amber-300">
