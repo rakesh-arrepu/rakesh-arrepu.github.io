@@ -89,6 +89,10 @@ function getTypeBadge(type?: string): { label: string; color: string } {
             return { label: "Workshop", color: "bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400" };
         case "conference":
             return { label: "Conference", color: "bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-400" };
+        case "bootcamp":
+            return { label: "Bootcamp", color: "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400" };
+        case "webinar":
+            return { label: "Webinar", color: "bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400" };
         case "course":
             return { label: "Course", color: "bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400" };
         case "certification":

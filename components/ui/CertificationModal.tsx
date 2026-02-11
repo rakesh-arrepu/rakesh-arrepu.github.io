@@ -14,6 +14,7 @@ interface CertificationModalProps {
         year?: number;
         month?: string;
         type?: string;
+        certImage?: string;
         description?: string;
         skills?: string[];
     };
@@ -148,12 +149,29 @@ export default function CertificationModal({
                                     </div>
                                 )}
 
-                                {/* Placeholder message */}
-                                <div className="mt-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
-                                    <p className="text-sm text-amber-800 dark:text-amber-300">
-                                        📄 Certificate document will be available here once uploaded
-                                    </p>
-                                </div>
+                                {/* Certificate Image */}
+                                {certification.certImage ? (
+                                    <div className="mt-6">
+                                        <a
+                                            href={certification.certImage}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="block rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-shadow"
+                                        >
+                                            <img
+                                                src={certification.certImage}
+                                                alt={`${certification.name} certificate`}
+                                                className="w-full h-auto"
+                                            />
+                                        </a>
+                                    </div>
+                                ) : (
+                                    <div className="mt-6 p-4 rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800">
+                                        <p className="text-sm text-amber-800 dark:text-amber-300">
+                                            Certificate document will be available here once uploaded
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </motion.div>
                     </div>
