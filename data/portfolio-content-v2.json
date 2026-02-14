@@ -34,17 +34,19 @@
       {"value": "AI Pioneer", "label": "Early Adopter in Testing"}
     ],
     "journeyTimeline": [
-      {"year": "2015", "phase": "Foundation", "title": "Quality Assurance Beginnings", "skills": ["Manual Testing", "SQL", "Test Cases", "Bug Tracking"], "milestone": "Started career in QA", "color": "from-blue-500 to-cyan-500", "iconName": "BookOpen"},
-      {"year": "2016", "phase": "Learning", "title": "Automation Fundamentals", "skills": ["Selenium WebDriver", "Java Basics", "TestNG", "Maven"], "milestone": "First automation framework", "color": "from-cyan-500 to-teal-500", "iconName": "Code"},
-      {"year": "2017", "phase": "Growth", "title": "Framework Architecture", "skills": ["Page Object Model", "BDD (Cucumber)", "Jenkins CI/CD", "Git"], "milestone": "Built enterprise test framework", "color": "from-teal-500 to-green-500", "iconName": "Zap"},
+      {"year": "2015", "phase": "Foundation", "title": "Quality Assurance Beginnings- Agile", "skills": ["Manual Testing", "SQL", "Test Cases", "Bug Life Cycle", "Agile"], "milestone": "Started career in QA", "color": "from-blue-500 to-cyan-500", "iconName": "BookOpen"},
+      {"year": "2016", "phase": "Learning", "title": "Automation Fundamentals", "skills": ["Selenium WebDriver", "Java", "QTP", "STLC"], "milestone": "First automation framework", "color": "from-cyan-500 to-teal-500", "iconName": "Code"},
+      {"year": "2017", "phase": "Accountability", "title": "Ownership & Responsibility of Product", "skills": ["Solo QA Ownership", "Release Sign-Off", "Defect Triage", "Quality Strategy", "Client Communication", "Process Improvement"], "milestone": "Acted as the sole QA gatekeeper driving product quality and delivery", "color": "from-teal-500 to-green-500", "iconName": "Zap"},
+      {"year": "2018", "phase": "Engineering Leap", "title": "First Automation Framework", "skills": ["Selenium C#", "Page Object Model", "BDD (Specflow)", "Git", "Framework Architecture"], "milestone": "Built my first C# BDD framework for 2 portals", "color": "from-teal-500 to-green-500", "iconName": "Zap"},
       {"year": "2018", "phase": "Expansion", "title": "API & Performance Testing", "skills": ["REST Assured", "Postman", "JMeter", "Groovy"], "milestone": "Mastered API automation", "color": "from-green-500 to-emerald-500", "iconName": "Target"},
-      {"year": "2019", "phase": "Specialization", "title": "Cloud & DevOps Integration", "skills": ["Docker", "Kubernetes", "AWS", "Azure DevOps"], "milestone": "Implemented cloud-based testing", "color": "from-emerald-500 to-blue-500", "iconName": "Sparkles"},
-      {"year": "2020", "phase": "Innovation", "title": "Modern Testing Tools", "skills": ["Cypress", "Playwright", "Python", "GraphQL"], "milestone": "Adopted next-gen frameworks", "color": "from-blue-500 to-purple-500", "iconName": "Zap"},
-      {"year": "2021", "phase": "Leadership", "title": "Test Strategy & Mentorship", "skills": ["Test Strategy", "Team Leadership", "Code Reviews", "Mentoring"], "milestone": "Led QA team of 8 engineers", "color": "from-purple-500 to-pink-500", "iconName": "Award"},
-      {"year": "2022", "phase": "Modernization", "title": "Microservices & Cloud-Native", "skills": ["Microservices Testing", "Kafka", "OCI", "Terraform"], "milestone": "Architected cloud-native test infrastructure", "color": "from-pink-500 to-rose-500", "iconName": "TrendingUp"},
-      {"year": "2023", "phase": "AI Integration", "title": "AI-Powered Testing", "skills": ["AI Testing Tools", "LLM Integration", "Test Data Gen", "Prompt Engineering"], "milestone": "Pioneered AI in testing workflows", "color": "from-rose-500 to-orange-500", "iconName": "Sparkles"},
-      {"year": "2024-25", "phase": "Innovation", "title": "AI Agents & Future of QA", "skills": ["AI Agents", "MCP Protocols", "Generative AI", "Autonomous Testing"], "milestone": "Building next-gen QA solutions", "color": "from-orange-500 to-amber-500", "iconName": "Zap"}
-    ]
+      {"year": "2019", "phase": "Integration", "title": "CI Integration & Scalable Automation", "skills": [""Jenkins CI", "CI/CD Pipelines", "SpecFlow E2E Framework", "Pipeline Configuration"], "milestone": "Integrated E2E SpecFlow framework with Jenkins CI", "color": "from-emerald-500 to-blue-500", "iconName": "Sparkles"},
+      {"year": "2020", "phase": "Hybrid Automation", "title": "Low-Code & BDD Hybrid Framework", "skills":  ["No-Code Testing", "ACCELQ Certification", "BDD Hybrid Framework", "UI + API Automation", "Test Data Generation via API"], "milestone": "Implemented hybrid UI-API BDD automation with API-driven test data", "color": "from-blue-500 to-purple-500", "iconName": "Zap"},
+      {"year": "2021", "phase": "Leadership", "title": "Test Strategy, Mentorship & Data Validation Framework", "skills": ["Data Pipeline Validation", "ETL Testing", "Team Leadership", "Code Reviews", "Mentoring"], "milestone": "Architected ETL data validation frameworks while leading QA team", "color": "from-purple-500 to-pink-500", "iconName": "Award"},
+      {"year": "2022", "phase": "Microservices Evolution", "title": "Contract Testing & Microservices Automation", "skills": ["PACT", "Microservices Testing", "CI/CD Integration (Jenkins)", "Service Virtualization Basics"], "milestone": "Implemented PACT-based contract testing with CI-driven microservices automation", "color": "from-pink-500 to-rose-500", "iconName": "TrendingUp"},
+      {"year": "2023", "phase": "Modernization", "title": "Karate DSL Adoption & API Framework Transformation", "skills": ["Karate DSL", "Framework Migration", "Mentorship & Training", "OBIEE Report Validation", "Analytics Testing"], "milestone": "Led enterprise migration to Karate DSL with successful product rollout", "color": "from-rose-500 to-orange-500", "iconName": "Sparkles"},
+      {"year": "2024", "phase": "Next-Gen Automation", "title": "Playwright Framework & Visual Regression Implementation", "skills": ["Playwright", "Visual Regression Testing", "Chromatic Integration","Pixel Diff Validation"], "milestone": "Building next-gen QA solutions with Playwright framework with automated visual regression testing", "color": "from-orange-500 to-amber-500", "iconName": "Zap"},
+      {"year": "2025", "phase": "AI Revolution", "title": "LLM-Driven Automation & Autonomous Testing", "skills": ["LLM", "Prompt Engineering", "MCP", "AI Test Case Generation", "Impact Analysser", "GraphQL Automation with AI", "OCI Integration", "Autonomous ETL Framework (OCI)"], "milestone": "Engineered AI-enabled testing with autonomous ETL and intelligent impact analysis", "color": "from-orange-500 to-amber-500", "iconName": "Zap"}
+]
   },
   "education": [
     {"degree": "B.Tech (Electronics Communication)", "period": "2010 - 2014"},
@@ -71,7 +73,7 @@
     {"name": "Telugu", "level": "Native"},
     {"name": "Hindi", "level": "Professional Working"}
   ],
-  "hobbies": ["Travel", "Music", "Foodie", "Technology", "Gadgets", "Photography"],
+  "hobbies": ["Travel", "Music", "Foodie", "Technology", "Gadgets", "Photography", "Articles"],
   "skills": {
     "heading": "Technical Expertise",
     "subheading": "Cutting-edge tools, frameworks & technologies I master",
