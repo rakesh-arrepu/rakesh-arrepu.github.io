@@ -3,15 +3,14 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import {
-    Briefcase,
     MapPin,
     Calendar,
     ChevronDown,
     ChevronUp,
-    Building2,
     CheckCircle2,
 } from "lucide-react";
 import { getExperienceContent, renderBold } from "@/lib/content-loader";
+import { getCompanyBrand } from "@/data/config";
 import GlowCard from "@/components/ui/GlowCard";
 import { fadeInLeft, fadeInRight } from "@/lib/animations";
 import { cn } from "@/lib/utils";
@@ -26,7 +25,7 @@ function extractMetric(text: string): string | null {
 
 export default function Experience() {
     const { heading, subheading, jobs: experience } = expContent;
-    const [expandedJobs, setExpandedJobs] = useState<Set<number>>(new Set([0]));
+    const [expandedJobs, setExpandedJobs] = useState<Set<number>>(new Set());
 
     const toggleJob = (index: number) => {
         const newExpanded = new Set(expandedJobs);
@@ -67,10 +66,10 @@ export default function Experience() {
                     {experience.map((job, index) => {
                         const isLeft = index % 2 === 0;
                         const isExpanded = expandedJobs.has(index);
-                        const hasMany = job.achievements.length > 6;
+                        const hasMany = job.achievements.length > 4;
                         const visibleAchievements = isExpanded
                             ? job.achievements
-                            : job.achievements.slice(0, 6);
+                            : job.achievements.slice(0, 4);
 
                         return (
                             <div key={index} className="relative">
@@ -137,18 +136,34 @@ export default function Experience() {
 
                                         {/* Header */}
                                         <div className="mb-6">
-                                            {/* Company Icon */}
-                                            <div
-                                                className={cn(
-                                                    "w-12 h-12 rounded-xl mb-4 flex items-center justify-center",
-                                                    index % 4 === 0 && "bg-gradient-to-br from-blue-500 to-cyan-500",
-                                                    index % 4 === 1 && "bg-gradient-to-br from-purple-500 to-pink-500",
-                                                    index % 4 === 2 && "bg-gradient-to-br from-cyan-500 to-blue-500",
-                                                    index % 4 === 3 && "bg-gradient-to-br from-green-500 to-emerald-500"
-                                                )}
-                                            >
-                                                <Building2 className="w-6 h-6 text-white" />
-                                            </div>
+                                            {(() => {
+                                                const brand = getCompanyBrand(job.company);
+                                                return (
+                                                    <div className="flex items-center gap-2.5 mb-4">
+                                                        {brand && (
+                                                            <>
+                                                                <div className="flex items-center justify-center h-5 w-auto flex-shrink-0">
+                                                                    <img
+                                                                        src={brand.logo}
+                                                                        alt={job.company}
+                                                                        className={cn(
+                                                                            "h-full w-auto max-w-[80px] max-h-5 object-contain",
+                                                                            brand.invertInDark && "dark:invert"
+                                                                        )}
+                                                                    />
+                                                                </div>
+                                                                <div
+                                                                    className="w-px h-4 flex-shrink-0 rounded-full"
+                                                                    style={{ backgroundColor: brand.color + "60" }}
+                                                                />
+                                                            </>
+                                                        )}
+                                                        <span className="text-sm font-bold tracking-wide text-slate-800 dark:text-slate-200 leading-none">
+                                                            {job.company}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            })()}
 
                                             {/* Role Title */}
                                             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
@@ -156,21 +171,13 @@ export default function Experience() {
                                             </h3>
 
                                             {/* Meta Information */}
-                                            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-3">
-                                                <span className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                                                    <Briefcase className="w-4 h-4 text-blue-500" />
-                                                    {job.company}
-                                                </span>
+                                            <div className="flex flex-wrap gap-x-4 gap-y-2">
                                                 <span className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                                                     <MapPin className="w-4 h-4 text-blue-500" />
                                                     {job.location}
                                                 </span>
-                                            </div>
-
-                                            {/* Period Badge */}
-                                            <div className="flex items-center gap-2">
-                                                <Calendar className="w-4 h-4 text-blue-500" />
-                                                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                                                <span className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                                                    <Calendar className="w-4 h-4 text-blue-500" />
                                                     {job.period}
                                                 </span>
                                             </div>
@@ -207,26 +214,24 @@ export default function Experience() {
                                             })}
                                         </div>
 
-                                        {/* Show More/Less Button */}
+                                        {/* More / Less Toggle */}
                                         {hasMany && (
-                                            <motion.button
+                                            <button
                                                 onClick={() => toggleJob(index)}
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                                className="mt-6 flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                                                className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline underline-offset-2 transition-colors cursor-pointer"
                                             >
                                                 {isExpanded ? (
                                                     <>
-                                                        <ChevronUp className="w-4 h-4" />
-                                                        Show Less
+                                                        <ChevronUp className="w-3.5 h-3.5" />
+                                                        Less
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <ChevronDown className="w-4 h-4" />
-                                                        Show {job.achievements.length - 6} More
+                                                        <ChevronDown className="w-3.5 h-3.5" />
+                                                        {job.achievements.length - 4} more
                                                     </>
                                                 )}
-                                            </motion.button>
+                                            </button>
                                         )}
                                     </GlowCard>
                                 </motion.div>

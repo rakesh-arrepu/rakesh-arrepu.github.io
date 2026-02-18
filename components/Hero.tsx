@@ -24,38 +24,7 @@ export default function Hero() {
     const linkedInLink = contact.items.find(i => i.iconName === "Linkedin")?.href || "";
     const githubLink = contact.items.find(i => i.iconName === "Github")?.href || "";
 
-    // Stats data with better context
-    const stats = [
-        {
-            label: "Years of Experience",
-            value: "10+",
-            unit: "Years",
-            description: "Industry Experience",
-            color: "from-blue-400 to-cyan-600"
-        },
-        {
-            label: "Technologies Mastered",
-            value: "43+",
-            unit: "Skills",
-            description: "Automation & Testing",
-            color: "from-purple-400 to-pink-600"
-        },
-        {
-            label: "Professional Certifications",
-            value: "6",
-            unit: "Certs",
-            description: "AI & Cloud Focused",
-            color: "from-green-400 to-emerald-600"
-        },
-    ];
-
-    // Primary skills to display
-    const primarySkills = [
-        "Selenium", "Playwright", "Cypress", "Java", "Python", "REST Assured", "AI Testing", "Jenkins"
-    ];
-
-    // Industries served
-    const industries = ["Cloud", "Airlines", "Healthcare", "Logistics"];
+    const { stats, primarySkills, industries, currentFocus, roleLabel, socialStats } = heroContent;
 
     // Typewriter effect
     useEffect(() => {
@@ -283,7 +252,7 @@ export default function Hero() {
                         >
                             <div className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-purple-500/90 to-pink-500/90 border border-purple-400/60 rounded-full shadow-xl backdrop-blur-sm">
                                 <Target className="w-4 h-4 text-purple-100" />
-                                <span className="text-xs text-white font-bold tracking-wide whitespace-nowrap">Currently Exploring: AI Agents & MCP</span>
+                                <span className="text-xs text-white font-bold tracking-wide whitespace-nowrap">{currentFocus}</span>
                             </div>
                         </motion.div>
 
@@ -309,7 +278,7 @@ export default function Hero() {
                                     </div>
                                     <div>
                                         <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">Role</p>
-                                        <p className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Test Specialist</p>
+                                        <p className="text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">{roleLabel}</p>
                                     </div>
                                 </motion.div>
 
@@ -390,7 +359,7 @@ export default function Hero() {
                                             <Linkedin className="w-5 h-5 text-blue-400" />
                                             <span className="text-sm font-medium text-slate-300">LinkedIn</span>
                                         </div>
-                                        <span className="text-xs text-blue-400 font-semibold">2K+ Followers</span>
+                                        <span className="text-xs text-blue-400 font-semibold">{socialStats.linkedinFollowers}</span>
                                     </motion.a>
 
                                     {/* GitHub */}
@@ -408,7 +377,7 @@ export default function Hero() {
                                             <Github className="w-5 h-5 text-purple-400" />
                                             <span className="text-sm font-medium text-slate-300">GitHub</span>
                                         </div>
-                                        <span className="text-xs text-purple-400 font-semibold">28 Repos</span>
+                                        <span className="text-xs text-purple-400 font-semibold">{socialStats.githubRepos}</span>
                                     </motion.a>
                                 </div>
                             </div>

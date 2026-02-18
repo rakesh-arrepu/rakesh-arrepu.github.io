@@ -24,7 +24,29 @@ import type { JourneyMilestone } from "@/data/types";
 
 const aboutContent = getAboutContent();
 
-// Icon mapping for journey timeline
+// Color theme mapping for impact metrics
+const metricColorMap: Record<string, { bg: string; border: string; icon: string; value: string }> = {
+    blue: {
+        bg: "from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
+        border: "border-blue-100 dark:border-blue-800/50",
+        icon: "text-blue-600 dark:text-blue-400",
+        value: "text-blue-700 dark:text-blue-300",
+    },
+    purple: {
+        bg: "from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
+        border: "border-purple-100 dark:border-purple-800/50",
+        icon: "text-purple-600 dark:text-purple-400",
+        value: "text-purple-700 dark:text-purple-300",
+    },
+    green: {
+        bg: "from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
+        border: "border-green-100 dark:border-green-800/50",
+        icon: "text-green-600 dark:text-green-400",
+        value: "text-green-700 dark:text-green-300",
+    },
+};
+
+// Icon mapping for journey timeline and impact metrics
 const iconMap: Record<string, LucideIcon> = {
     BookOpen,
     Code,
@@ -34,10 +56,11 @@ const iconMap: Record<string, LucideIcon> = {
     Award,
     TrendingUp,
     User,
+    Calendar,
 };
 
 export default function About() {
-    const { heading, subheading, bio, journeyTimeline } = aboutContent;
+    const { heading, subheading, bio, journeyTimeline, journeySubtitle, impactMetrics, learningPath } = aboutContent;
     const [hoveredYear, setHoveredYear] = useState<string | null>(null);
 
     return (
@@ -82,7 +105,7 @@ export default function About() {
                                             My Journey
                                         </h3>
                                         <p className="text-sm text-slate-500 dark:text-slate-400">
-                                            10 years of continuous growth & innovation
+                                            {journeySubtitle}
                                         </p>
                                     </div>
                                 </div>
@@ -197,19 +220,19 @@ export default function About() {
                                                 <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                                                 <div>
                                                     <p className="text-sm font-bold text-slate-900 dark:text-white">
-                                                        Continuous Learning Path
+                                                        {learningPath.title}
                                                     </p>
                                                     <p className="text-xs text-slate-600 dark:text-slate-400">
-                                                        From manual testing to AI-powered automation
+                                                        {learningPath.description}
                                                     </p>
                                                 </div>
                                             </div>
                                             <div className="text-right">
                                                 <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-                                                    43+
+                                                    {learningPath.statsValue}
                                                 </p>
                                                 <p className="text-[10px] text-slate-600 dark:text-slate-400 uppercase tracking-wider">
-                                                    Skills Acquired
+                                                    {learningPath.statsLabel}
                                                 </p>
                                             </div>
                                         </div>
@@ -251,67 +274,31 @@ export default function About() {
 
                             {/* Horizontal Grid Statistics */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                {/* Years of Experience */}
-                                <div className="p-5 rounded-xl bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-100 dark:border-blue-800/50">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <Calendar className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                        <span className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                                            Experience
-                                        </span>
-                                    </div>
-                                    <div className="flex items-baseline gap-1">
-                                        <AnimatedCounter
-                                            value={10}
-                                            duration={2}
-                                            className="text-4xl font-bold text-blue-700 dark:text-blue-300"
-                                        />
-                                        <span className="text-xl font-bold text-blue-600 dark:text-blue-400">
-                                            + Years
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Skills Count */}
-                                <div className="p-5 rounded-xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-100 dark:border-purple-800/50">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <Code className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                                        <span className="text-xs font-semibold uppercase tracking-wider text-purple-600 dark:text-purple-400">
-                                            Technologies
-                                        </span>
-                                    </div>
-                                    <div className="flex items-baseline gap-1">
-                                        <AnimatedCounter
-                                            value={43}
-                                            duration={2}
-                                            delay={0.2}
-                                            className="text-4xl font-bold text-purple-700 dark:text-purple-300"
-                                        />
-                                        <span className="text-xl font-bold text-purple-600 dark:text-purple-400">
-                                            Skills
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* LinkedIn Network */}
-                                <div className="p-5 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border border-green-100 dark:border-green-800/50">
-                                    <div className="flex items-center gap-3 mb-3">
-                                        <Award className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                        <span className="text-xs font-semibold uppercase tracking-wider text-green-600 dark:text-green-400">
-                                            Network
-                                        </span>
-                                    </div>
-                                    <div className="flex items-baseline gap-1">
-                                        <AnimatedCounter
-                                            value={2000}
-                                            duration={2}
-                                            delay={0.4}
-                                            className="text-4xl font-bold text-green-700 dark:text-green-300"
-                                        />
-                                        <span className="text-xl font-bold text-green-600 dark:text-green-400">
-                                            + Followers
-                                        </span>
-                                    </div>
-                                </div>
+                                {impactMetrics.map((metric, index) => {
+                                    const MetricIcon = iconMap[metric.iconName] || Code;
+                                    const colorStyles = metricColorMap[metric.colorTheme] || metricColorMap.blue;
+                                    return (
+                                        <div key={metric.label} className={`p-5 rounded-xl bg-gradient-to-br ${colorStyles.bg} border ${colorStyles.border}`}>
+                                            <div className="flex items-center gap-3 mb-3">
+                                                <MetricIcon className={`w-5 h-5 ${colorStyles.icon}`} />
+                                                <span className={`text-xs font-semibold uppercase tracking-wider ${colorStyles.icon}`}>
+                                                    {metric.label}
+                                                </span>
+                                            </div>
+                                            <div className="flex items-baseline gap-1">
+                                                <AnimatedCounter
+                                                    value={metric.value}
+                                                    duration={2}
+                                                    delay={index * 0.2}
+                                                    className={`text-4xl font-bold ${colorStyles.value}`}
+                                                />
+                                                <span className={`text-xl font-bold ${colorStyles.icon}`}>
+                                                    {metric.suffix}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     </GlowCard>

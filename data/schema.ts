@@ -3,8 +3,22 @@ import { z } from "zod";
 
 const personalInfoSchema = z.object({
   name: z.string().min(1, "Name is required"),
+  role: z.string().min(1, "Role is required"),
   email: z.string().email("Invalid email address"),
   phone: z.string().optional(),
+});
+
+const heroStatSchema = z.object({
+  label: z.string(),
+  value: z.string(),
+  unit: z.string(),
+  description: z.string(),
+  color: z.string(),
+});
+
+const socialStatsSchema = z.object({
+  linkedinFollowers: z.string(),
+  githubRepos: z.string(),
 });
 
 const heroSectionSchema = z.object({
@@ -12,6 +26,12 @@ const heroSectionSchema = z.object({
   name: z.string().min(1, "Hero name is required"),
   roles: z.array(z.string()).min(1, "At least one role is required"),
   backgroundImage: z.string().optional(),
+  stats: z.array(heroStatSchema).min(1),
+  primarySkills: z.array(z.string()).min(1),
+  industries: z.array(z.string()).min(1),
+  currentFocus: z.string(),
+  roleLabel: z.string(),
+  socialStats: socialStatsSchema,
 });
 
 const aboutDetailSchema = z.object({
@@ -29,12 +49,30 @@ const journeyMilestoneSchema = z.object({
   iconName: z.string(),
 });
 
+const impactMetricSchema = z.object({
+  label: z.string(),
+  value: z.number(),
+  suffix: z.string(),
+  iconName: z.string(),
+  colorTheme: z.string(),
+});
+
+const learningPathSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  statsValue: z.string(),
+  statsLabel: z.string(),
+});
+
 const aboutSectionSchema = z.object({
   heading: z.string(),
   subheading: z.string(),
   bio: z.string(),
   details: z.array(aboutDetailSchema),
   journeyTimeline: z.array(journeyMilestoneSchema),
+  journeySubtitle: z.string(),
+  impactMetrics: z.array(impactMetricSchema).min(1),
+  learningPath: learningPathSchema,
 });
 
 const skillItemSchema = z.object({

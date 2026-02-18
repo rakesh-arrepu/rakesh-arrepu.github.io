@@ -8,7 +8,6 @@ import { getGradient } from "@/data/config";
 import GlowCard from "@/components/ui/GlowCard";
 import FloatingBadge from "@/components/ui/FloatingBadge";
 import { staggerContainerFast, staggerItem, fadeInUp } from "@/lib/animations";
-import { cn } from "@/lib/utils";
 import type { Organization, Project } from "@/data/types";
 
 const projectsContent = getProjectsContent();
@@ -144,23 +143,17 @@ function OrganizationSection({ organization, index }: OrganizationSectionProps) 
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, margin: "-100px" }}
-                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
+                            className="grid grid-cols-1 md:grid-cols-2 gap-6"
                         >
                             {organization.projects.map((project, projectIndex) => {
                                 const gradient = getGradient(project.gradient);
-                                const isFeatured = projectIndex === 0 && organization.projects.length > 1;
                                 const metric = extractMetric(project.impact);
 
                                 return (
                                     <motion.div
                                         key={projectIndex}
                                         variants={staggerItem}
-                                        className={cn(
-                                            "relative",
-                                            isFeatured
-                                                ? "md:col-span-2 lg:col-span-7 lg:row-span-2"
-                                                : "md:col-span-1 lg:col-span-5"
-                                        )}
+                                        className="relative"
                                     >
                                         <GlowCard
                                             glowColor={
@@ -176,18 +169,11 @@ function OrganizationSection({ organization, index }: OrganizationSectionProps) 
                                             }
                                             glowIntensity="md"
                                             enableHover={true}
-                                            enableTilt={isFeatured}
-                                            className={cn(
-                                                "relative overflow-hidden h-full",
-                                                isFeatured ? "p-8 md:p-10" : "p-6 md:p-8"
-                                            )}
+                                            className="relative overflow-hidden h-full p-6 md:p-8"
                                         >
                                             {/* Visual Header - Gradient Background */}
                                             <div
-                                                className={cn(
-                                                    "absolute top-0 left-0 right-0 opacity-10 dark:opacity-20",
-                                                    isFeatured ? "h-32" : "h-24"
-                                                )}
+                                                className="absolute top-0 left-0 right-0 h-24 opacity-10 dark:opacity-20"
                                                 style={{
                                                     background: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
                                                 }}
@@ -198,23 +184,18 @@ function OrganizationSection({ organization, index }: OrganizationSectionProps) 
 
                                             <div className="relative z-10">
                                                 {/* Header */}
-                                                <div className={cn("mb-6", isFeatured && "mb-8")}>
-                                                    <h4
-                                                        className={cn(
-                                                            "font-bold text-slate-900 dark:text-white mb-3",
-                                                            isFeatured ? "text-2xl md:text-3xl" : "text-xl"
-                                                        )}
-                                                    >
+                                                <div className="mb-6">
+                                                    <h4 className="font-bold text-xl text-slate-900 dark:text-white mb-3">
                                                         {project.title}
                                                     </h4>
 
                                                     {/* Tech Stack Badges */}
-                                                    <div className={cn("flex flex-wrap gap-2", isFeatured && "gap-3")}>
+                                                    <div className="flex flex-wrap gap-2">
                                                         {project.tech.map((tech, techIndex) => (
                                                             <FloatingBadge
                                                                 key={tech}
                                                                 variant="purple"
-                                                                size={isFeatured ? "md" : "sm"}
+                                                                size="sm"
                                                                 delay={techIndex * 0.05}
                                                             >
                                                                 {tech}
@@ -319,23 +300,17 @@ export default function ProjectsEnhanced() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-6"
                     >
                         {legacyProjects?.map((project: Project, index: number) => {
                             const gradient = getGradient(project.gradient);
-                            const isFeatured = index === 0;
                             const metric = extractMetric(project.impact);
 
                             return (
                                 <motion.div
                                     key={index}
                                     variants={staggerItem}
-                                    className={cn(
-                                        "relative",
-                                        isFeatured
-                                            ? "md:col-span-2 lg:col-span-7 lg:row-span-2"
-                                            : "md:col-span-1 lg:col-span-5"
-                                    )}
+                                    className="relative"
                                 >
                                     <GlowCard
                                         glowColor={
@@ -351,38 +326,26 @@ export default function ProjectsEnhanced() {
                                         }
                                         glowIntensity="md"
                                         enableHover={true}
-                                        enableTilt={isFeatured}
-                                        className={cn(
-                                            "relative overflow-hidden h-full",
-                                            isFeatured ? "p-8 md:p-10" : "p-6 md:p-8"
-                                        )}
+                                        className="relative overflow-hidden h-full p-6 md:p-8"
                                     >
                                         <div
-                                            className={cn(
-                                                "absolute top-0 left-0 right-0 opacity-10 dark:opacity-20",
-                                                isFeatured ? "h-32" : "h-24"
-                                            )}
+                                            className="absolute top-0 left-0 right-0 h-24 opacity-10 dark:opacity-20"
                                             style={{
                                                 background: `linear-gradient(135deg, ${gradient.from} 0%, ${gradient.to} 100%)`,
                                             }}
                                         />
                                         <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03] grid-pattern pointer-events-none" />
                                         <div className="relative z-10">
-                                            <div className={cn("mb-6", isFeatured && "mb-8")}>
-                                                <h3
-                                                    className={cn(
-                                                        "font-bold text-slate-900 dark:text-white mb-3",
-                                                        isFeatured ? "text-2xl md:text-3xl" : "text-xl"
-                                                    )}
-                                                >
+                                            <div className="mb-6">
+                                                <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-3">
                                                     {project.title}
                                                 </h3>
-                                                <div className={cn("flex flex-wrap gap-2", isFeatured && "gap-3")}>
+                                                <div className="flex flex-wrap gap-2">
                                                     {project.tech.map((tech, techIndex) => (
                                                         <FloatingBadge
                                                             key={tech}
                                                             variant="purple"
-                                                            size={isFeatured ? "md" : "sm"}
+                                                            size="sm"
                                                             delay={techIndex * 0.05}
                                                         >
                                                             {tech}

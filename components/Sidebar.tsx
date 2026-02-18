@@ -3,36 +3,50 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import {
-    Home,
-    User,
-    Briefcase,
-    FolderKanban,
-    Award,
+    House,
+    UserRound,
+    BriefcaseBusiness,
+    Rocket,
+    BadgeCheck,
     Mail,
     Linkedin,
     Github,
     FileText,
     Menu,
     X,
-    Code2,
+    BrainCircuit,
+    Send,
     ChevronLeft,
     ChevronRight,
 } from "lucide-react";
-import { getPersonalInfo, getContactContent, getAboutContent } from "@/lib/content-loader";
+import { getPersonalInfo, getContactContent } from "@/lib/content-loader";
+
+// Brand colors for social icon glow effects (Behance/Dribbble inspired)
+const SOCIAL_BRAND: Record<string, { color: string; shadow: string }> = {
+    Mail:     { color: "#3b82f6", shadow: "0 0 20px rgba(59,130,246,0.5), 0 0 40px rgba(59,130,246,0.2)" },
+    Linkedin: { color: "#0A66C2", shadow: "0 0 20px rgba(10,102,194,0.5), 0 0 40px rgba(10,102,194,0.2)" },
+    Github:   { color: "#8b5cf6", shadow: "0 0 20px rgba(139,92,246,0.5), 0 0 40px rgba(139,92,246,0.2)" },
+    FileText: { color: "#06b6d4", shadow: "0 0 20px rgba(6,182,212,0.5), 0 0 40px rgba(6,182,212,0.2)" },
+    Phone:    { color: "#10b981", shadow: "0 0 20px rgba(16,185,129,0.5), 0 0 40px rgba(16,185,129,0.2)" },
+    Twitter:  { color: "#1DA1F2", shadow: "0 0 20px rgba(29,161,242,0.5), 0 0 40px rgba(29,161,242,0.2)" },
+};
+
+// Framer Motion Link wrapper
+const MotionLink = motion.create(Link);
 
 const personalInfo = getPersonalInfo();
 const contactContent = getContactContent();
-const aboutContent = getAboutContent();
 
 const navItems = [
-    { label: "Home", icon: Home, href: "#home" },
-    { label: "About", icon: User, href: "#about" },
-    { label: "Skills", icon: Code2, href: "#skills" },
-    { label: "Experience", icon: Briefcase, href: "#experience" },
-    { label: "Projects", icon: FolderKanban, href: "#projects" },
-    { label: "Certifications", icon: Award, href: "#certifications" },
-    { label: "Contact", icon: Mail, href: "#contact" },
+    { label: "Home",           icon: House,             href: "#home",           color: "#3b82f6" },  // blue
+    { label: "About",          icon: UserRound,         href: "#about",          color: "#8b5cf6" },  // violet
+    { label: "Skills",         icon: BrainCircuit,      href: "#skills",         color: "#06b6d4" },  // cyan
+    { label: "Experience",     icon: BriefcaseBusiness, href: "#experience",     color: "#f59e0b" },  // amber
+    { label: "Projects",       icon: Rocket,            href: "#projects",       color: "#ef4444" },  // red
+    { label: "Certifications", icon: BadgeCheck,        href: "#certifications", color: "#10b981" },  // emerald
+    { label: "Contact",        icon: Send,              href: "#contact",        color: "#ec4899" },  // pink
 ];
 
 export default function Sidebar() {
@@ -114,18 +128,6 @@ export default function Sidebar() {
             >
                 {/* Subtle gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
-                {/* Collapse Toggle (desktop only) */}
-                <button
-                    onClick={() => setCollapsed(!collapsed)}
-                    className="hidden lg:flex absolute top-5 -right-0 w-6 h-6 items-center justify-center rounded-l-md bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white z-50 transition-all duration-200 shadow-lg hover:shadow-blue-500/50"
-                    aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
-                >
-                    {collapsed ? (
-                        <ChevronRight className="w-3.5 h-3.5" />
-                    ) : (
-                        <ChevronLeft className="w-3.5 h-3.5" />
-                    )}
-                </button>
 
                 {/* Profile Section */}
                 <div
@@ -137,7 +139,7 @@ export default function Sidebar() {
                             }`}
                     >
                         <Image
-                            src="/profile.png"
+                            src="/circle-picture-rakesh.jpeg"
                             alt={personalInfo.name}
                             width={80}
                             height={80}
@@ -150,26 +152,87 @@ export default function Sidebar() {
                                 {personalInfo.name}
                             </h1>
                             <p className="text-xs text-blue-400/80 mt-0.5">
-                                {aboutContent.details.find((d) => d.label === "Role")?.value || "Principal QA Engineer"}
+                                {personalInfo.role}
                             </p>
 
-                            {/* Social Icons */}
-                            <div className="flex gap-2 mt-3">
-                                {contactContent.items.map((social) => {
+                            {/* Social Icons — animated with Framer Motion */}
+                            <div className="flex gap-3 mt-3">
+                                {contactContent.items.map((social, i) => {
                                     const IconMap: Record<string, typeof Mail> = {
                                         Mail, Linkedin, Github, FileText
                                     };
                                     const Icon = IconMap[social.iconName] || Mail;
+                                    const brand = SOCIAL_BRAND[social.iconName] || SOCIAL_BRAND.Mail;
+
+                                    // Variants for coordinated parent→child animation
+                                    const containerVariants = {
+                                        rest: {
+                                            y: 0,
+                                            scale: 1,
+                                            rotate: 0,
+                                            boxShadow: "0 0 0px rgba(0,0,0,0)",
+                                            borderColor: "rgba(255,255,255,0.08)",
+                                            backgroundColor: "rgba(255,255,255,0.04)",
+                                        },
+                                        hover: {
+                                            y: -6,
+                                            scale: 1.2,
+                                            rotate: [0, -10, 8, -4, 0],
+                                            boxShadow: brand.shadow,
+                                            borderColor: `${brand.color}66`,
+                                            backgroundColor: `${brand.color}18`,
+                                        },
+                                        tap: { scale: 0.88, y: 0 },
+                                    };
+
+                                    const glowVariants = {
+                                        rest: { opacity: 0, scale: 0.5 },
+                                        hover: { opacity: 1, scale: 1.8 },
+                                    };
+
+                                    const iconVariants = {
+                                        rest: { scale: 1, color: brand.color },
+                                        hover: { scale: 1.15, color: "#ffffff" },
+                                    };
+
                                     return (
-                                    <Link
-                                        key={social.label}
-                                        href={social.href}
-                                        target={social.external ? "_blank" : undefined}
-                                        className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-gradient-to-br hover:from-blue-600 hover:to-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-200 group"
-                                        aria-label={social.label}
-                                    >
-                                        <Icon className="w-3.5 h-3.5 text-slate-400 group-hover:text-white group-hover:scale-110 transition-all" />
-                                    </Link>
+                                        <MotionLink
+                                            key={social.label}
+                                            href={social.href}
+                                            target={social.external ? "_blank" : undefined}
+                                            aria-label={social.label}
+                                            className="relative w-9 h-9 rounded-xl flex items-center justify-center border cursor-pointer"
+                                            variants={containerVariants}
+                                            initial="rest"
+                                            whileHover="hover"
+                                            whileTap="tap"
+                                            animate={{ opacity: 1, y: 0 }}
+                                            transition={{
+                                                type: "spring",
+                                                stiffness: 400,
+                                                damping: 15,
+                                                rotate: { duration: 0.5, ease: "easeInOut" },
+                                                delay: i * 0.07,
+                                            }}
+                                        >
+                                            {/* Glow pulse — expands behind icon on hover */}
+                                            <motion.span
+                                                className="absolute inset-0 rounded-xl pointer-events-none"
+                                                variants={glowVariants}
+                                                transition={{ duration: 0.35, ease: "easeOut" }}
+                                                style={{
+                                                    background: `radial-gradient(circle, ${brand.color}30 0%, transparent 70%)`,
+                                                }}
+                                            />
+                                            {/* Icon — color shifts to white on hover */}
+                                            <motion.span
+                                                className="relative z-10 flex items-center justify-center"
+                                                variants={iconVariants}
+                                                transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                                            >
+                                                <Icon className="w-4 h-4" />
+                                            </motion.span>
+                                        </MotionLink>
                                     );
                                 })}
                             </div>
@@ -192,17 +255,24 @@ export default function Sidebar() {
                                                 ? "justify-center px-2 py-3"
                                                 : "px-3 py-2.5"
                                             } ${isActive
-                                                ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/30"
+                                                ? "text-white shadow-lg"
                                                 : "text-slate-400 hover:text-white hover:bg-white/5"
                                             }`}
+                                        style={isActive ? {
+                                            background: `linear-gradient(to right, ${item.color}cc, ${item.color}99)`,
+                                            boxShadow: `0 4px 15px ${item.color}40`,
+                                        } : undefined}
                                     >
                                         {/* Active indicator line */}
                                         {isActive && !collapsed && (
-                                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-cyan-400 rounded-r-full" />
+                                            <div
+                                                className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 rounded-r-full"
+                                                style={{ backgroundColor: item.color }}
+                                            />
                                         )}
                                         <Icon
-                                            className={`flex-shrink-0 ${isActive ? "drop-shadow-sm" : ""} ${collapsed && !mobileOpen ? "w-5 h-5" : "w-4 h-4"
-                                                }`}
+                                            className={`flex-shrink-0 ${collapsed && !mobileOpen ? "w-5 h-5" : "w-4 h-4"}`}
+                                            style={isActive ? undefined : { color: item.color }}
                                         />
                                         {(!collapsed || mobileOpen) && <span className={isActive ? "font-semibold" : ""}>{item.label}</span>}
                                     </button>
@@ -212,12 +282,29 @@ export default function Sidebar() {
                     </ul>
                 </nav>
 
-                {/* Footer */}
-                {(!collapsed || mobileOpen) && (
-                    <div className="px-4 py-3 text-[10px] text-slate-600 text-center border-t border-white/5">
-                        © {new Date().getFullYear()} {personalInfo.name}
-                    </div>
-                )}
+                {/* Footer with Collapse Toggle */}
+                <div className="relative border-t border-white/5">
+                    {(!collapsed || mobileOpen) && (
+                        <div className="px-4 py-2 text-[10px] text-slate-600 text-center">
+                            © {new Date().getFullYear()} {personalInfo.name}
+                        </div>
+                    )}
+                    {/* Collapse Toggle (desktop only) */}
+                    <button
+                        onClick={() => setCollapsed(!collapsed)}
+                        className={`hidden lg:flex w-full items-center justify-center gap-2 py-2.5 text-slate-500 hover:text-white hover:bg-white/5 transition-all duration-200 cursor-pointer ${collapsed && !mobileOpen ? "border-t border-white/5" : ""}`}
+                        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+                    >
+                        {collapsed && !mobileOpen ? (
+                            <ChevronRight className="w-4 h-4" />
+                        ) : (
+                            <>
+                                <ChevronLeft className="w-3.5 h-3.5" />
+                                <span className="text-[11px] font-medium">Collapse</span>
+                            </>
+                        )}
+                    </button>
+                </div>
             </aside>
         </>
     );

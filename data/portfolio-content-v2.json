@@ -1,6 +1,7 @@
 {
   "personal": {
     "name": "Rakesh Arrepu",
+    "role": "Senior Automation Engineer | SDET",
     "email": "rakesh.arrepu@gmail.com",
     "phone": "+91-9494671198"
   },
@@ -12,7 +13,38 @@
       "AI-First QA Framework Architect",
       "Agentic AI Testing Pioneer",
       "Quality Engineering Leader"
-    ]
+    ],
+    "stats": [
+      {
+        "label": "Years of Experience",
+        "value": "11+",
+        "unit": "Years",
+        "description": "Industry Experience",
+        "color": "from-blue-400 to-cyan-600"
+      },
+      {
+        "label": "Technologies Mastered",
+        "value": "43+",
+        "unit": "Skills",
+        "description": "Automation & Testing",
+        "color": "from-purple-400 to-pink-600"
+      },
+      {
+        "label": "Professional Certifications",
+        "value": "6",
+        "unit": "Certs",
+        "description": "AI & Cloud Focused",
+        "color": "from-green-400 to-emerald-600"
+      }
+    ],
+    "primarySkills": ["Selenium", "Playwright", "Cypress", "Java", "Python", "REST Assured", "AI Testing", "Jenkins"],
+    "industries": ["Cloud", "Airlines", "Healthcare", "Logistics"],
+    "currentFocus": "Currently Exploring: AI Agents & MCP",
+    "roleLabel": "Test Specialist",
+    "socialStats": {
+      "linkedinFollowers": "2K+ Followers",
+      "githubRepos": "28 Repos"
+    }
   },
   "about": {
     "heading": "About Me",
@@ -46,7 +78,37 @@
       {"year": "2023", "phase": "Modernization", "title": "Karate DSL Adoption & API Framework Transformation", "skills": ["Karate DSL", "Framework Migration", "Mentorship & Training", "OBIEE Report Validation", "Analytics Testing"], "milestone": "Led enterprise migration to Karate DSL with successful product rollout", "color": "from-rose-500 to-orange-500", "iconName": "Sparkles"},
       {"year": "2024", "phase": "Next-Gen Automation", "title": "Playwright Framework & Visual Regression Implementation", "skills": ["Playwright", "Visual Regression Testing", "Chromatic Integration","Pixel Diff Validation"], "milestone": "Building next-gen QA solutions with Playwright framework with automated visual regression testing", "color": "from-orange-500 to-amber-500", "iconName": "Zap"},
       {"year": "2025", "phase": "AI Revolution", "title": "LLM-Driven Automation & Autonomous Testing", "skills": ["LLM", "Prompt Engineering", "MCP", "AI Test Case Generation", "Impact Analysser", "GraphQL Automation with AI", "OCI Integration", "Autonomous ETL Framework (OCI)"], "milestone": "Engineered AI-enabled testing with autonomous ETL and intelligent impact analysis", "color": "from-orange-500 to-amber-500", "iconName": "Zap"}
-]
+    ],
+    "journeySubtitle": "11 years of continuous growth & innovation",
+    "impactMetrics": [
+      {
+        "label": "Experience",
+        "value": 11,
+        "suffix": "+ Years",
+        "iconName": "Calendar",
+        "colorTheme": "blue"
+      },
+      {
+        "label": "Technologies",
+        "value": 43,
+        "suffix": " Skills",
+        "iconName": "Code",
+        "colorTheme": "purple"
+      },
+      {
+        "label": "Network",
+        "value": 2000,
+        "suffix": "+ Followers",
+        "iconName": "Award",
+        "colorTheme": "green"
+      }
+    ],
+    "learningPath": {
+      "title": "Continuous Learning Path",
+      "description": "From manual testing to AI-powered automation",
+      "statsValue": "43+",
+      "statsLabel": "Skills Acquired"
+    }
   },
   "education": [
     {"degree": "B.Tech (Electronics Communication)", "period": "2010 - 2014"},
@@ -153,7 +215,7 @@
   },
   "experience": {
     "heading": "Professional Experience",
-    "subheading": "Over a decade of delivering excellence in quality engineering",
+    "subheading": "Over 11 years of delivering excellence in quality engineering",
     "jobs": [
       {
         "role": "Senior Software QA Engineer",

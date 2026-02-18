@@ -1,18 +1,79 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSkillsContent } from "@/lib/content-loader";
-import CircularProgress, { getSkillColor } from "@/components/ui/CircularProgress";
+import { getSkillIcon, getSkillBrandColor } from "@/data/config";
 import GlowCard from "@/components/ui/GlowCard";
 import { staggerContainerFast, staggerItem } from "@/lib/animations";
 import { cn } from "@/lib/utils";
 
 const skillsContent = getSkillsContent();
 
+/** Map skill level (0-100) to a 1-5 dot rating */
+function getDotRating(level: number): number {
+    if (level >= 90) return 5;
+    if (level >= 80) return 4;
+    if (level >= 70) return 3;
+    if (level >= 55) return 2;
+    return 1;
+}
+
+/** Proficiency label and styling based on level */
+function getProficiency(level: number) {
+    if (level >= 90)
+        return {
+            label: "Expert",
+            chipClass:
+                "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/25",
+            dotFilled:
+                "bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.5)]",
+            glowColor: "green" as const,
+            iconColor: "#10B981",
+        };
+    if (level >= 80)
+        return {
+            label: "Advanced",
+            chipClass:
+                "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/25",
+            dotFilled:
+                "bg-blue-500 shadow-[0_0_6px_rgba(59,130,246,0.5)]",
+            glowColor: "blue" as const,
+            iconColor: "#3B82F6",
+        };
+    if (level >= 70)
+        return {
+            label: "Intermediate",
+            chipClass:
+                "bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 border-cyan-500/25",
+            dotFilled:
+                "bg-cyan-500 shadow-[0_0_6px_rgba(6,182,212,0.5)]",
+            glowColor: "cyan" as const,
+            iconColor: "#06B6D4",
+        };
+    return {
+        label: "Learning",
+        chipClass:
+            "bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/25",
+        dotFilled:
+            "bg-purple-500 shadow-[0_0_6px_rgba(139,92,246,0.5)]",
+        glowColor: "purple" as const,
+        iconColor: "#8B5CF6",
+    };
+}
+
 export default function Skills() {
     const { heading, subheading, categories: skills } = skillsContent;
     const [activeTab, setActiveTab] = useState(0);
+    const [isDark, setIsDark] = useState(false);
+
+    useEffect(() => {
+        const mq = window.matchMedia("(prefers-color-scheme: dark)");
+        setIsDark(mq.matches);
+        const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
+        mq.addEventListener("change", handler);
+        return () => mq.removeEventListener("change", handler);
+    }, []);
 
     return (
         <section id="skills" className="portfolio-section">
@@ -25,16 +86,19 @@ export default function Skills() {
             <div className="max-w-7xl">
                 <div className="flex gap-3 mb-10 justify-center overflow-x-auto pb-2">
                     {skills.map((category, index) => {
-                        // Shortened category names for better display
                         const categoryMap: Record<string, string> = {
                             "Test Automation Frameworks": "Automation",
                             "Programming & Scripting": "Programming",
                             "Cloud & DevOps": "Cloud/DevOps",
                             "AI & Emerging Tech": "AI & ML",
                             "API Testing & Performance": "API Testing",
-                            "Tools & Management": "Tools"
+                            "API & Services Testing": "API Testing",
+                            "Tools & Management": "Tools",
+                            "DevOps & Cloud": "DevOps",
+                            "SCM & Version Control": "SCM",
                         };
-                        const displayName = categoryMap[category.category] || category.category;
+                        const displayName =
+                            categoryMap[category.category] || category.category;
 
                         return (
                             <motion.button
@@ -49,7 +113,6 @@ export default function Skills() {
                                         : "bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
                                 )}
                             >
-                                {/* Active indicator */}
                                 {activeTab === index && (
                                     <motion.div
                                         layoutId="activeTab"
@@ -61,13 +124,15 @@ export default function Skills() {
                                         }}
                                     />
                                 )}
-                                <span className="relative z-10">{displayName}</span>
+                                <span className="relative z-10">
+                                    {displayName}
+                                </span>
                             </motion.button>
                         );
                     })}
                 </div>
 
-                {/* Skills Grid with Animation */}
+                {/* Skills Grid */}
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeTab}
@@ -79,7 +144,15 @@ export default function Skills() {
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6"
                     >
                         {skills[activeTab].items.map((skill, index) => {
-                            const skillColor = getSkillColor(skill.level);
+                            const dots = getDotRating(skill.level);
+                            const proficiency = getProficiency(skill.level);
+                            const SkillIcon = getSkillIcon(
+                                skill.name,
+                                skills[activeTab].category
+                            );
+                            const iconColor =
+                                getSkillBrandColor(skill.name, isDark) ??
+                                proficiency.iconColor;
 
                             return (
                                 <motion.div
@@ -88,49 +161,62 @@ export default function Skills() {
                                     custom={index}
                                 >
                                     <GlowCard
-                                        glowColor={skillColor}
+                                        glowColor={proficiency.glowColor}
                                         glowIntensity="sm"
                                         enableHover={true}
                                         className="p-5 flex flex-col items-center text-center h-full"
                                     >
-                                        {/* Circular Progress */}
-                                        <CircularProgress
-                                            percentage={skill.level}
-                                            size={80}
-                                            strokeWidth={6}
-                                            showPercentage={true}
-                                            animateOnView={true}
-                                            className="mb-4"
+                                        {/* Skill Icon */}
+                                        <SkillIcon
+                                            size={28}
+                                            style={{ color: iconColor }}
+                                            className="mb-2 flex-shrink-0"
                                         />
 
                                         {/* Skill Name */}
-                                        <h4 className="font-mono text-xs font-semibold text-slate-900 dark:text-white mb-1">
+                                        <h4 className="font-mono text-xs font-semibold text-slate-900 dark:text-white mb-3">
                                             {skill.name}
                                         </h4>
 
-                                        {/* Proficiency Badge */}
+                                        {/* Dot Rating */}
+                                        <div className="flex gap-2 mb-3">
+                                            {Array.from({ length: 5 }).map(
+                                                (_, i) => (
+                                                    <motion.div
+                                                        key={i}
+                                                        initial={{
+                                                            scale: 0,
+                                                            opacity: 0,
+                                                        }}
+                                                        animate={{
+                                                            scale: 1,
+                                                            opacity: 1,
+                                                        }}
+                                                        transition={{
+                                                            delay:
+                                                                0.3 + i * 0.08,
+                                                            duration: 0.3,
+                                                            ease: "easeOut",
+                                                        }}
+                                                        className={cn(
+                                                            "w-3 h-3 rounded-full transition-all",
+                                                            i < dots
+                                                                ? proficiency.dotFilled
+                                                                : "bg-slate-200 dark:bg-slate-700/60"
+                                                        )}
+                                                    />
+                                                )
+                                            )}
+                                        </div>
+
+                                        {/* Proficiency Chip */}
                                         <span
                                             className={cn(
-                                                "text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full",
-                                                skill.level >= 90 &&
-                                                    "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
-                                                skill.level >= 80 &&
-                                                    skill.level < 90 &&
-                                                    "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400",
-                                                skill.level >= 70 &&
-                                                    skill.level < 80 &&
-                                                    "bg-cyan-100 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-400",
-                                                skill.level < 70 &&
-                                                    "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400"
+                                                "text-[11px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border",
+                                                proficiency.chipClass
                                             )}
                                         >
-                                            {skill.level >= 90
-                                                ? "Master"
-                                                : skill.level >= 80
-                                                ? "Proficient"
-                                                : skill.level >= 70
-                                                ? "Competent"
-                                                : "Learning"}
+                                            {proficiency.label}
                                         </span>
                                     </GlowCard>
                                 </motion.div>

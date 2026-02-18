@@ -13,8 +13,22 @@ export interface PortfolioContent {
 
 export interface PersonalInfo {
   name: string;
+  role: string;
   email: string;
   phone?: string;
+}
+
+export interface HeroStat {
+  label: string;
+  value: string;
+  unit: string;
+  description: string;
+  color: string;
+}
+
+export interface SocialStats {
+  linkedinFollowers: string;
+  githubRepos: string;
 }
 
 export interface HeroSection {
@@ -22,6 +36,12 @@ export interface HeroSection {
   name: string;
   roles: string[];
   backgroundImage?: string;
+  stats: HeroStat[];
+  primarySkills: string[];
+  industries: string[];
+  currentFocus: string;
+  roleLabel: string;
+  socialStats: SocialStats;
 }
 
 export interface AboutDetail {
@@ -39,12 +59,30 @@ export interface JourneyMilestone {
   iconName: string;
 }
 
+export interface ImpactMetric {
+  label: string;
+  value: number;
+  suffix: string;
+  iconName: string;
+  colorTheme: string;
+}
+
+export interface LearningPath {
+  title: string;
+  description: string;
+  statsValue: string;
+  statsLabel: string;
+}
+
 export interface AboutSection {
   heading: string;
   subheading: string;
   bio: string;
   details: AboutDetail[];
   journeyTimeline: JourneyMilestone[];
+  journeySubtitle: string;
+  impactMetrics: ImpactMetric[];
+  learningPath: LearningPath;
 }
 
 export interface SkillItem {
